@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32002.261
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UzsakymuValdymoSistema", "UzsakymuValdymoSistema.csproj", "{EA45B170-22FB-4F43-9DEE-0FEC5819EB18}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EA45B170-22FB-4F43-9DEE-0FEC5819EB18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA45B170-22FB-4F43-9DEE-0FEC5819EB18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA45B170-22FB-4F43-9DEE-0FEC5819EB18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA45B170-22FB-4F43-9DEE-0FEC5819EB18}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C9CE8D5D-6508-41F2-A44B-AF30C9D12A2D}
+	EndGlobalSection
+EndGlobal
