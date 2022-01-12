@@ -1,0 +1,14 @@
+C:\Users\pauli\Documents\GitHub\UzsakymuValdymoSistema\UzsakymuValdymoSistema\bin\Debug\netcoreapp3.1\UzsakymuValdymoSistema.exe
+C:\Users\pauli\Documents\GitHub\UzsakymuValdymoSistema\UzsakymuValdymoSistema\bin\Debug\netcoreapp3.1\UzsakymuValdymoSistema.deps.json
+C:\Users\pauli\Documents\GitHub\UzsakymuValdymoSistema\UzsakymuValdymoSistema\bin\Debug\netcoreapp3.1\UzsakymuValdymoSistema.runtimeconfig.json
+C:\Users\pauli\Documents\GitHub\UzsakymuValdymoSistema\UzsakymuValdymoSistema\bin\Debug\netcoreapp3.1\UzsakymuValdymoSistema.runtimeconfig.dev.json
+C:\Users\pauli\Documents\GitHub\UzsakymuValdymoSistema\UzsakymuValdymoSistema\bin\Debug\netcoreapp3.1\UzsakymuValdymoSistema.dll
+C:\Users\pauli\Documents\GitHub\UzsakymuValdymoSistema\UzsakymuValdymoSistema\bin\Debug\netcoreapp3.1\UzsakymuValdymoSistema.pdb
+C:\Users\pauli\Documents\GitHub\UzsakymuValdymoSistema\UzsakymuValdymoSistema\obj\Debug\netcoreapp3.1\UzsakymuValdymoSistema.csproj.AssemblyReference.cache
+C:\Users\pauli\Documents\GitHub\UzsakymuValdymoSistema\UzsakymuValdymoSistema\obj\Debug\netcoreapp3.1\UzsakymuValdymoSistema.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pauli\Documents\GitHub\UzsakymuValdymoSistema\UzsakymuValdymoSistema\obj\Debug\netcoreapp3.1\UzsakymuValdymoSistema.AssemblyInfoInputs.cache
+C:\Users\pauli\Documents\GitHub\UzsakymuValdymoSistema\UzsakymuValdymoSistema\obj\Debug\netcoreapp3.1\UzsakymuValdymoSistema.AssemblyInfo.cs
+C:\Users\pauli\Documents\GitHub\UzsakymuValdymoSistema\UzsakymuValdymoSistema\obj\Debug\netcoreapp3.1\UzsakymuValdymoSistema.csproj.CoreCompileInputs.cache
+C:\Users\pauli\Documents\GitHub\UzsakymuValdymoSistema\UzsakymuValdymoSistema\obj\Debug\netcoreapp3.1\UzsakymuValdymoSistema.dll
+C:\Users\pauli\Documents\GitHub\UzsakymuValdymoSistema\UzsakymuValdymoSistema\obj\Debug\netcoreapp3.1\UzsakymuValdymoSistema.pdb
+C:\Users\pauli\Documents\GitHub\UzsakymuValdymoSistema\UzsakymuValdymoSistema\obj\Debug\netcoreapp3.1\UzsakymuValdymoSistema.genruntimeconfig.cache
