@@ -23,6 +23,8 @@ namespace UzsakymuValdymoSistema.Options
             {
                 Console.WriteLine($"Order Id:{item.OrderId} -- Client ''{item.ClientCompany}'' for the ammount of {item.Ammount} tones of {item.ProductName} for total of: {item.TotalPrice}$.");
             }
+
+            Console.ReadLine();
         }
     }
 }

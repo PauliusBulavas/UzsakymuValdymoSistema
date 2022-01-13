@@ -25,6 +25,8 @@ namespace UzsakymuValdymoSistema.Options
                 Console.WriteLine($"Client Id:{item.ClientId} -- Name: {item.ClientName} Company: ''{item.ClientCompanyName}''.");
             }
 
+            Console.ReadLine();
+
         }
     }
 }
