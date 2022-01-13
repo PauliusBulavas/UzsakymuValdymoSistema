@@ -22,7 +22,7 @@ namespace UzsakymuValdymoSistema.Options
             Console.WriteLine("All Clients report:");
             foreach (var item in allClients)
             {
-                Console.WriteLine($"Client Id:{item.ClientId} -- Client {item.ClientName} from company ''{item.ClientCompanyName}''.");
+                Console.WriteLine($"Client Id:{item.ClientId} -- Name: {item.ClientName} Company: ''{item.ClientCompanyName}''.");
             }
 
         }

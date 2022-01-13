@@ -34,7 +34,7 @@ namespace UzsakymuValdymoSistema.Report
                 report.ProductId     = order.ProductId;
                 report.ProductName   = product.ProductName;
                 report.Ammount       = order.Ammount;
-                report.Price         = product.Price * order.Ammount;                                         
+                report.TotalPrice    = product.Price * order.Ammount;                                         
 
                 orderList.Add(report);
             }

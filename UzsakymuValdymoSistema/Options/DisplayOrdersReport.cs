@@ -21,7 +21,7 @@ namespace UzsakymuValdymoSistema.Options
             System.Console.WriteLine("All Orders report:");
             foreach (var item in allOrders)
             {
-                Console.WriteLine($"Order {item.OrderId} of {item.ProductName} for Client {item.ClientCompany} for the ammount of {item.Ammount} tones, of {item.Price}.");
+                Console.WriteLine($"Order Id:{item.OrderId} -- Client ''{item.ClientCompany}'' for the ammount of {item.Ammount} tones of {item.ProductName} for total of: {item.TotalPrice}$.");
             }
         }
     }

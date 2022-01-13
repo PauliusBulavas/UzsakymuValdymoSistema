@@ -12,8 +12,10 @@ namespace UzsakymuValdymoSistema
             Console.WriteLine("Which report do you want to see?");
             Console.WriteLine($"[1] - All Client's report");
             Console.WriteLine($"[2] - All Order's report");
+            Console.WriteLine($"[4] - Add/Remove Client");
+            Console.WriteLine($"[5] - Add/Remove Order");
 
-            int option = int.Parse(Console.ReadLine());
+            int option = int.Parse(Console.ReadLine()); //error handler reikia 
 
             switch (option)
             {
@@ -22,6 +24,10 @@ namespace UzsakymuValdymoSistema
                     break;
                 case 2:
                     DisplayOrdersReport.GetOrdersReport();
+                    break;
+                case 3:
+                    break;
+                case 4:
                     break;
                 default:
                     Console.WriteLine("wrong input!");

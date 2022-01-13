@@ -12,7 +12,7 @@ namespace UzsakymuValdymoSistema.Report
         public int      ProductId     { get; set; }
         public string   ProductName   { get; set; }
         public double   Ammount       { get; set; }
-        public double   Price         { get; set; }
+        public double   TotalPrice    { get; set; }
 
     }
 }
