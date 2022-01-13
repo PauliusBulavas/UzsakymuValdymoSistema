@@ -9,11 +9,12 @@ namespace UzsakymuValdymoSistema
     {
         static void Main(string[] args)
         {
-            var clientRepository = new ClientRepository();
-            var ordersRepository = new OrdersRepository();
+            var clientRepository  = new ClientRepository();
+            var ordersRepository  = new OrdersRepository();
+            var productRepository = new ProductRepository();
 
             var allClientsReport         = new AllClientsReport(clientRepository, ordersRepository);
-            var allUncoveredOrdersReport = new AllUncoveredOrdersReport(clientRepository, ordersRepository);
+            var allUncoveredOrdersReport = new AllUncoveredOrdersReport(clientRepository, ordersRepository, productRepository);
 
             List<ReportItemClients> allClients = allClientsReport.GetAllClients();
             List<ReportItemOrders> allOrders   = allUncoveredOrdersReport.GetAllOrders();
@@ -27,7 +28,7 @@ namespace UzsakymuValdymoSistema
             System.Console.WriteLine("All Orders report:");
             foreach (var item in allOrders)
             {
-                Console.WriteLine($"Order {item.OrderId} for Client {item.ClientId} for the ammount of {item.Ammount} tones, of {item.Products}.");
+                Console.WriteLine($"Order {item.OrderId} of {item.ProductName} for Client {item.ClientName} for the ammount of {item.Ammount} tones, of {item.Price}.");
             }
         }
     }

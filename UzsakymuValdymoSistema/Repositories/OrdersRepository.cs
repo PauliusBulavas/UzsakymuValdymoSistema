@@ -10,25 +10,26 @@ namespace UzsakymuValdymoSistema.Repositories
 
         public OrdersRepository()
         {
-            // orderid - clinetid - products - ammount - price
-            orders.Add(new Order(1, 1, "Copper", 2, 300.99));
-            orders.Add(new Order(2, 2, "Coal", 3, 200.99));
-            orders.Add(new Order(3, 1, "Iron", 1, 400.99));
-            orders.Add(new Order(4, 1, "Coal", 2, 200.99));
-            orders.Add(new Order(5, 3, "Iron", 5, 400.99));
-            orders.Add(new Order(6, 4, "Coal", 2, 200.99));
-            orders.Add(new Order(7, 1, "Iron", 3, 400.99));
-            orders.Add(new Order(8, 2, "Copper", 2, 300.99));
-            orders.Add(new Order(9, 1, "Coal", 1, 200.99));
-            orders.Add(new Order(10, 3, "Iron", 2, 400.99));
+            // orderid - clinetid - products - ammount
+            orders.Add(new Order(1,  1, 1, 20));
+            orders.Add(new Order(2,  2, 3, 15));
+            orders.Add(new Order(3,  1, 2, 10));
+            orders.Add(new Order(4,  1, 3, 35));
+            orders.Add(new Order(5,  3, 2, 30));
+            orders.Add(new Order(6,  4, 3, 80));
+            orders.Add(new Order(7,  1, 4, 40));
+            orders.Add(new Order(8,  2, 5, 24));
+            orders.Add(new Order(9,  1, 3, 32));
+            orders.Add(new Order(10, 3, 1, 27));
         }
         public List<Order> GetOrders() => orders;
 
-        public Order GetClients(int orderId)
+        public Order GetOrders(int orderId)
         {
-            var actualClient = orders.FirstOrDefault(x => x.OrderId == orderId);
+            var actualOrder = orders.FirstOrDefault(x => x.OrderId == orderId);
 
-            return actualClient;
+            return actualOrder;
         }
+        
     }
 }

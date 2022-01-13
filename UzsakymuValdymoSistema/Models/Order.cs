@@ -6,23 +6,21 @@ namespace UzsakymuValdymoSistema.Models
 {
     public class Order
     {
-        public int      OrderId     { get; set; }
+        public int      OrderId     { get; private set; }
         public int      ClientId    { get; set; }
-        public string   Products    { get; set; }
+        public int      ProductId   { get; set; }
         public double   Ammount     { get; set; }
-        public double   Price       { get; set; }
 
         public Order()
         {
         }
 
-        public Order(int orderId, int clientId, string products, int ammount, double price)
+        public Order(int orderId, int clientId, int productId, int ammount)
         {
             OrderId     = orderId;
             ClientId    = clientId;
-            Products    = products;
+            ProductId   = productId;
             Ammount     = ammount;
-            Price       = price;
         }
     }
 }

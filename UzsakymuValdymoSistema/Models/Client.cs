@@ -6,7 +6,7 @@ namespace UzsakymuValdymoSistema.Models
 {
     public class Client
     {
-        public int      ClientId            { get; set; }
+        public int      ClientId            { get; private set; }
         public string   ClientName          { get; set; }
         public string   ClientCompanyName   { get; set; }
 
