@@ -10,11 +10,10 @@ namespace UzsakymuValdymoSistema.Options
     {
         public static void GetOrdersReport()
         {
-            var clientRepository = new ClientRepository();
-            var ordersRepository = new OrdersRepository();
+            var clientRepository  = new ClientRepository();
+            var ordersRepository  = new OrdersRepository();
             var productRepository = new ProductRepository();
 
-            var allClientsReport = new AllClientsReport(clientRepository, ordersRepository);
             var allUncoveredOrdersReport = new AllUncoveredOrdersReport(clientRepository, ordersRepository, productRepository);
 
             List<ReportItemOrders> allOrders = allUncoveredOrdersReport.GetAllOrders();
