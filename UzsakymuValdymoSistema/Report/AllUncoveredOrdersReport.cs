@@ -34,7 +34,7 @@ namespace UzsakymuValdymoSistema.Report
                 report.ProductId = order.ProductId;
                 report.ProductName = product.ProductName;
                 report.Ammount   = order.Ammount;
-                report.Price = product.Price;                                          //reikes metodo kad apskaiciuot pilna suma pagal kieki
+                report.Price = product.Price * order.Ammount;                                          //reikes metodo kad apskaiciuot pilna suma pagal kieki
 
                 orderList.Add(report);
             }
