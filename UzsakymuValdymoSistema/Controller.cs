@@ -58,6 +58,8 @@ namespace UzsakymuValdymoSistema
             {
                 case 1:
                     ListEditing.AddClient();
+                    Console.Clear();
+                    SelectClientsMenu();
                     break;
                 case 2:
                     ListEditing.RemoveClient();
@@ -80,10 +82,10 @@ namespace UzsakymuValdymoSistema
             switch (option)
             {
                 case 1:
-                    //add Order
+                    ListEditing.AddOrder();                   
                     break;
                 case 2:
-                    //remove Order
+                    ListEditing.RemoveOrder();
                     break;
                 default:
                     Console.Clear();

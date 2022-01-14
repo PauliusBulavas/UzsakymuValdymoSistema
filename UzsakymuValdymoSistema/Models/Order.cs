@@ -6,7 +6,7 @@ namespace UzsakymuValdymoSistema.Models
 {
     public class Order
     {
-        public int      OrderId     { get; private set; }
+        public int      OrderId     { get; set; }
         public int      ClientId    { get; set; }
         public int      ProductId   { get; set; }
         public double   Ammount     { get; set; }
@@ -15,7 +15,7 @@ namespace UzsakymuValdymoSistema.Models
         {
         }
 
-        public Order(int orderId, int clientId, int productId, int ammount)
+        public Order(int orderId, int clientId, int productId, double ammount)
         {
             OrderId     = orderId;
             ClientId    = clientId;
