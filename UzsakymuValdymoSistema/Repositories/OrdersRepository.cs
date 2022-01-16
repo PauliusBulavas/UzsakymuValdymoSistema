@@ -4,13 +4,13 @@ using UzsakymuValdymoSistema.Models;
 
 namespace UzsakymuValdymoSistema.Repositories
 {
-    class OrdersRepository
+    public class OrdersRepository
     {
         private List<Order> orders = new List<Order>();
 
         public OrdersRepository()
         {
-            // orderid - clinetid - products - ammount
+            // orderid - clinetid - productId - ammount
             orders.Add(new Order(1,  1, 1, 20));
             orders.Add(new Order(2,  2, 3, 15));
             orders.Add(new Order(3,  1, 2, 10));
@@ -29,6 +29,17 @@ namespace UzsakymuValdymoSistema.Repositories
             var actualOrder = orders.FirstOrDefault(x => x.OrderId == orderId);
 
             return actualOrder;
+        }
+
+        public void AddOrder(Order order)
+        {
+            order.OrderId = orders.LastOrDefault().OrderId + 1;
+            orders.Add(order);
+        }
+
+        public bool RemoveOrder(int id)
+        {
+            return orders.Remove(GetOrders(id));
         }
         
     }

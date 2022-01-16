@@ -9,12 +9,10 @@ namespace UzsakymuValdymoSistema.Report
     class AllClientsReport
     {
         private ClientRepository _clientRepository;
-        private OrdersRepository _ordersRepository;
 
-        public AllClientsReport(ClientRepository clientRepository, OrdersRepository ordersRepository)
+        public AllClientsReport(ClientRepository clientRepository)
         {
             _clientRepository = clientRepository;
-            _ordersRepository = ordersRepository;
         }
 
         public List<ReportItemClients> GetAllClients()

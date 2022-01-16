@@ -9,7 +9,11 @@ namespace UzsakymuValdymoSistema
     {
         static void Main(string[] args)
         {
-            Controller.OptionsMenu();
+            Controller controller = new Controller();
+            while (true)
+            {
+                controller.ShowMenu();
+            }
         }
     }
 }

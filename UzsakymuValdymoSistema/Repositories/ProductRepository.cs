@@ -6,7 +6,7 @@ using UzsakymuValdymoSistema.Models;
 
 namespace UzsakymuValdymoSistema.Repositories
 {
-    class ProductRepository
+    public class ProductRepository
     {
         private List<Product> products = new List<Product>();
 
@@ -27,6 +27,17 @@ namespace UzsakymuValdymoSistema.Repositories
             var acctualProduct = products.FirstOrDefault(x => x.ProductId == productId);
 
             return acctualProduct;
+        }
+
+        public void AddProduct(Product product)
+        {
+            product.ProductId = products.LastOrDefault().ProductId + 1;
+            products.Add(product);
+        }
+
+        public bool RemoveProduct(int id)
+        {
+            return products.Remove(GetProducts(id)); 
         }
 
     }
