@@ -25,6 +25,10 @@ namespace UzsakymuValdymoSistema.Report
             foreach (var order in orders)
             {
                 var client  = _clientRepository.GetClients(order.ClientId);
+                if (client == null)
+                {
+                    continue;
+                }
                 var product = _productRepository.GetProducts(order.ProductId);
                 
                 ReportItemOrders report = new ReportItemOrders();

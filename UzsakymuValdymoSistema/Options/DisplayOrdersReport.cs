@@ -13,13 +13,13 @@ namespace UzsakymuValdymoSistema.Options
 
             List<ReportItemOrders> allOrders = allUncoveredOrdersReport.GetAllOrders();
 
-            Console.WriteLine("All Orders report:");
+            Console.WriteLine("All Orders report:\n");
             foreach (var item in allOrders)
             {
                 Console.WriteLine($"Order Id:{item.OrderId} -- Client \"{item.ClientCompany}\" for the ammount of {item.Ammount} tones of {item.ProductName} for total of: {item.TotalPrice}$.");
             }
 
-            Console.ReadLine();
+            Console.WriteLine();
         }
     }
 }

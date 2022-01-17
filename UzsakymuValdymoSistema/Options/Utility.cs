@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 using UzsakymuValdymoSistema.Models;
 using UzsakymuValdymoSistema.Report;
@@ -47,6 +48,23 @@ namespace UzsakymuValdymoSistema.Options
             order.Ammount = ammount;
 
             return order;
+        }
+
+        public Product GetNewProductFromInput()
+        {
+            Console.WriteLine("Input product Name: ");
+            string name = Console.ReadLine();
+            Console.WriteLine("Input product price: ");
+
+            IFormatProvider provider = NumberFormatInfo.InvariantInfo; // tam kad nereiketu butinai kablelio del lokalizacijos rasyti
+
+            double price = double.Parse(Console.ReadLine(), provider);
+
+            var product = new Product();
+            product.ProductName = name;
+            product.Price = price;
+
+            return product;
         }
 
         
