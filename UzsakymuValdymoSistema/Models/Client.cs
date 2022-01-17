@@ -6,9 +6,9 @@ namespace UzsakymuValdymoSistema.Models
 {
     public class Client
     {
-        public int      ClientId            { get; set; }
-        public string   ClientName          { get; set; }
-        public string   ClientCompanyName   { get; set; }
+        public int      ClientId          { get; set; }
+        public string   ClientName        { get; set; }
+        public string   ClientCompanyName { get; set; }
 
         public Client()
         {
@@ -16,9 +16,9 @@ namespace UzsakymuValdymoSistema.Models
 
         public Client(int clientId, string clientName, string clientCompanyName)
         {
-            ClientId            = clientId;
-            ClientName          = clientName;
-            ClientCompanyName   = clientCompanyName;
+            ClientId          = clientId;
+            ClientName        = clientName;
+            ClientCompanyName = clientCompanyName;
         }
     }
 }

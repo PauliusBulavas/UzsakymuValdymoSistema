@@ -11,9 +11,9 @@ namespace UzsakymuValdymoSistema.Repositories
 
         public ClientRepository()
         {
-            clients.Add(new Client(1, "Jonas", "UAB Lydimo darbai"));
-            clients.Add(new Client(2, "Petras", "UAB China Trade"));
-            clients.Add(new Client(3, "Tomas", "UAB Kalvis"));
+            clients.Add(new Client(1, "Jonas",   "UAB Lydimo darbai"));
+            clients.Add(new Client(2, "Petras",  "UAB China Trade"));
+            clients.Add(new Client(3, "Tomas",   "UAB Kalvis"));
             clients.Add(new Client(4, "Andrius", "UAB Smeltlita"));
         }
 

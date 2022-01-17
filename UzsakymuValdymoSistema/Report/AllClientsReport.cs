@@ -17,15 +17,15 @@ namespace UzsakymuValdymoSistema.Report
 
         public List<ReportItemClients> GetAllClients()
         {
-            List<Client> clients                = _clientRepository.GetClients();
-            List<ReportItemClients> clientList  = new List<ReportItemClients>();
+            List<Client> clients               = _clientRepository.GetClients();
+            List<ReportItemClients> clientList = new List<ReportItemClients>();
 
             foreach (var client in clients)
             {
                 var report = new ReportItemClients();
-                report.ClientId             = client.ClientId;
-                report.ClientName           = client.ClientName;
-                report.ClientCompanyName    = client.ClientCompanyName;
+                report.ClientId          = client.ClientId;
+                report.ClientName        = client.ClientName;
+                report.ClientCompanyName = client.ClientCompanyName;
 
                 clientList.Add(report);
             }

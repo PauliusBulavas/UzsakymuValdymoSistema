@@ -37,11 +37,10 @@ namespace UzsakymuValdymoSistema
             Console.WriteLine("[6] - Add/Remove Product");
             Console.WriteLine("[7] - Exit");
 
-            
+
             //int option = int.Parse(Console.ReadLine()); //error handler reikia 
 
-            int option;
-            bool value = int.TryParse(Console.ReadLine(), out option);
+            int option = TryParseOption();         //ghetto handles wrong inputs
 
             switch (option)
             {
@@ -99,7 +98,7 @@ namespace UzsakymuValdymoSistema
                     CreateClientsMenu();
                     break;
                 case 2:
-                    PrintClients(clientRepository.GetClients());
+                    PrintClients(clientRepository.GetClients());            //istrynus klienta dingsta ir order susije su jo id fault or feature??!?!
                     clientRepository.RemoveClient(Utility.ParseId());
                     Console.Clear();
                     CreateClientsMenu();
@@ -118,7 +117,7 @@ namespace UzsakymuValdymoSistema
             Console.WriteLine("[2] - Remove an Order");
             Console.WriteLine("[3] - Go back");
 
-            int option = int.Parse(Console.ReadLine());
+            int option = TryParseOption();
 
             switch (option)
             {
@@ -150,7 +149,7 @@ namespace UzsakymuValdymoSistema
             Console.WriteLine("[2] - Remove a product");
             Console.WriteLine("[3] - Go back");
 
-            int option = int.Parse(Console.ReadLine());
+            int option = TryParseOption();
 
             switch (option)
             {
@@ -192,5 +191,12 @@ namespace UzsakymuValdymoSistema
             Console.WriteLine();
         }
 
+        public int TryParseOption() //Ghetto ass error handler again
+        {
+            int value;
+            bool succsess = int.TryParse(Console.ReadLine(), out value);
+
+            return value;
+        }
     }
 }

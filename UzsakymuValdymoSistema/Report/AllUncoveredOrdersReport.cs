@@ -6,15 +6,15 @@ namespace UzsakymuValdymoSistema.Report
 {
     class AllUncoveredOrdersReport
     {
-        private ClientRepository   _clientRepository;
-        private OrdersRepository   _ordersRepository;
-        private ProductRepository  _productRepository;
+        private ClientRepository  _clientRepository;
+        private OrdersRepository  _ordersRepository;
+        private ProductRepository _productRepository;
 
         public AllUncoveredOrdersReport(ClientRepository clientRepository, OrdersRepository ordersRepository, ProductRepository productRepository)
         {
-            _clientRepository   = clientRepository;
-            _ordersRepository   = ordersRepository;
-            _productRepository  = productRepository;
+            _clientRepository  = clientRepository;
+            _ordersRepository  = ordersRepository;
+            _productRepository = productRepository;
         }
 
         public List<ReportItemOrders> GetAllOrders()
@@ -24,7 +24,7 @@ namespace UzsakymuValdymoSistema.Report
             
             foreach (var order in orders)
             {
-                var client  = _clientRepository.GetClients(order.ClientId);
+                var client = _clientRepository.GetClients(order.ClientId);
                 if (client == null)
                 {
                     continue;

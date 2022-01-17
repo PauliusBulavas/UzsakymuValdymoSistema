@@ -14,9 +14,9 @@ namespace UzsakymuValdymoSistema.Repositories
         {
             //productid -- product name -- product price
             products.Add(new Product(1, "Copper", 89.56));
-            products.Add(new Product(2, "Iron", 99.99));
-            products.Add(new Product(3, "Coal", 69.85));
-            products.Add(new Product(4, "Tin", 52.20));
+            products.Add(new Product(2, "Iron",   99.99));
+            products.Add(new Product(3, "Coal",   69.85));
+            products.Add(new Product(4, "Tin",    52.20));
             products.Add(new Product(5, "Sulfur", 102.02));
         }
 

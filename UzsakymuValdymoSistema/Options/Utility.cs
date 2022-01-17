@@ -18,7 +18,7 @@ namespace UzsakymuValdymoSistema.Options
             string clientCompany = Console.ReadLine();
 
             var client = new Client();
-            client.ClientName = clientName;
+            client.ClientName        = clientName;
             client.ClientCompanyName = clientCompany;
 
             return client;
@@ -27,17 +27,17 @@ namespace UzsakymuValdymoSistema.Options
         public Order GetNewOrderFromInput() 
         {
             Console.WriteLine("Input Client Id: ");
-            int clientId = int.Parse(Console.ReadLine());
+            int clientId  = int.Parse(Console.ReadLine());
             Console.WriteLine("Input Product Id: ");
             int productId = int.Parse(Console.ReadLine());
             Console.WriteLine("Input Ammount: ");
-            int ammount = int.Parse(Console.ReadLine());
+            int ammount   = int.Parse(Console.ReadLine());
 
 
             var order = new Order();
-            order.ClientId = clientId;
+            order.ClientId  = clientId;
             order.ProductId = productId;
-            order.Ammount = ammount;
+            order.Ammount   = ammount;
 
             return order;
         }
@@ -54,12 +54,12 @@ namespace UzsakymuValdymoSistema.Options
 
             var product = new Product();
             product.ProductName = name;
-            product.Price = price;
+            product.Price       = price;
 
             return product;
         }
 
-        public static int ParseId()
+        public static int ParseId() //ghetto handles wrong inputs, ar taip korektiska daryti?!?!?!
         {
             Console.WriteLine("Input ID to remove or [ENTER] to go back");
             int value;
