@@ -24,14 +24,6 @@ namespace UzsakymuValdymoSistema.Options
             return client;
         }
 
-        public static int ParseId()
-        {
-            Console.WriteLine("Input ID to remove");
-            int idToRemove = int.Parse(Console.ReadLine());
-
-            return idToRemove;
-        }
-
         public Order GetNewOrderFromInput() 
         {
             Console.WriteLine("Input Client Id: ");
@@ -56,7 +48,7 @@ namespace UzsakymuValdymoSistema.Options
             string name = Console.ReadLine();
             Console.WriteLine("Input product price: ");
 
-            IFormatProvider provider = NumberFormatInfo.InvariantInfo; // tam kad nereiketu butinai kablelio del lokalizacijos rasyti
+            IFormatProvider provider = NumberFormatInfo.InvariantInfo; // tam kad nereiketu butinai kablelio del lokalizacijos rasyti, tinka ir taskas = no crash
 
             double price = double.Parse(Console.ReadLine(), provider);
 
@@ -67,7 +59,16 @@ namespace UzsakymuValdymoSistema.Options
             return product;
         }
 
-        
-        
+        public static int ParseId()
+        {
+            Console.WriteLine("Input ID to remove or [ENTER] to go back");
+            int value;
+            bool idToRemove = int.TryParse(Console.ReadLine(), out value);
+
+            return value;          
+        }
+
+
+
     }
 }

@@ -30,6 +30,10 @@ namespace UzsakymuValdymoSistema.Report
                     continue;
                 }
                 var product = _productRepository.GetProducts(order.ProductId);
+                if (product == null)
+                {
+                    continue;
+                }
                 
                 ReportItemOrders report = new ReportItemOrders();
                 report.OrderId       = order.OrderId;

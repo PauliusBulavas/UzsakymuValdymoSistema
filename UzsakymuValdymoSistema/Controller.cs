@@ -37,7 +37,11 @@ namespace UzsakymuValdymoSistema
             Console.WriteLine("[6] - Add/Remove Product");
             Console.WriteLine("[7] - Exit");
 
-            int option = int.Parse(Console.ReadLine()); //error handler reikia 
+            
+            //int option = int.Parse(Console.ReadLine()); //error handler reikia 
+
+            int option;
+            bool value = int.TryParse(Console.ReadLine(), out option);
 
             switch (option)
             {
@@ -91,8 +95,6 @@ namespace UzsakymuValdymoSistema
                 case 1:                   
                     var newClient = utility.GetNewClientFromInput();
                     clientRepository.AddClient(newClient);
-                    PrintClients(clientRepository.GetClients());
-                    Console.ReadKey();
                     Console.Clear();
                     CreateClientsMenu();
                     break;
@@ -121,7 +123,7 @@ namespace UzsakymuValdymoSistema
             switch (option)
             {
                 case 1:
-                    var newOrder = utility.GetNewOrderFromInput();
+                    var newOrder = utility.GetNewOrderFromInput();  //jei naudojamas neegzistuojantis klienatas ir/ar productas orderis nesusikura, taciau apie tai nepranesa!!
                     ordersRepository.AddOrder(newOrder);
                     Console.Clear();
                     CreateOrdersMenu();
@@ -130,6 +132,8 @@ namespace UzsakymuValdymoSistema
                     DisplayOrdersReport displayOrdersReport = new DisplayOrdersReport();
                     displayOrdersReport.GetOrdersReport(clientRepository, productRepository, ordersRepository);
                     ordersRepository.RemoveOrder(Utility.ParseId());
+                    Console.Clear();
+                    CreateOrdersMenu();
                     break;
                 default:
                     Console.Clear();
@@ -160,6 +164,7 @@ namespace UzsakymuValdymoSistema
                 case 2:
                     PrintProducts(productRepository.GetProducts());
                     productRepository.RemoveProduct(Utility.ParseId());
+                    Console.Clear();
                     CreateProductsMenu();
                     break;
                 default:
@@ -173,7 +178,7 @@ namespace UzsakymuValdymoSistema
             Console.WriteLine("All Current Clients:\n");
             foreach (var client in clients)
             {
-                Console.WriteLine($"ID: {client.ClientId}, Name: {client.ClientName}, Company name: ''{client.ClientCompanyName}'' ");
+                Console.WriteLine($"ID: {client.ClientId}, Name: {client.ClientName}, Company name: \"{client.ClientCompanyName}\" ");
             }
             Console.WriteLine();
         }
@@ -186,5 +191,6 @@ namespace UzsakymuValdymoSistema
             }
             Console.WriteLine();
         }
+
     }
 }
