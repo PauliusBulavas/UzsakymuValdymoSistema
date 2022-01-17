@@ -43,6 +43,7 @@ namespace UzsakymuValdymoSistema.Repositories
 
         public ProductRepository()
         {
+            IFormatProvider provider = NumberFormatInfo.InvariantInfo;
             string fileName = "C:\\Users\\pauli\\Documents\\GitHub\\UzsakymuValdymoSistema\\Data\\ProductRepository.csv";
             string[] linesInFile = File.ReadAllLines(fileName);
             linesInFile = linesInFile.Skip(1).ToArray();
@@ -52,10 +53,9 @@ namespace UzsakymuValdymoSistema.Repositories
                 string[] rows = line.Split(',');
 
                 var product = new Product();
-                product.ProductId = Convert.ToInt32(rows[0]);
+                product.ProductId   = Convert.ToInt32(rows[0]);
                 product.ProductName = rows[1];
-                IFormatProvider provider = NumberFormatInfo.InvariantInfo;
-                product.Price = Convert.ToDouble(rows[2], provider);
+                product.Price       = Convert.ToDouble(rows[2], provider);
 
                 products.Add(product);
             }

@@ -10,7 +10,7 @@ namespace UzsakymuValdymasTests
         {
             //arrange
             var clientRepository = new ClientRepository();
-            string name = "Tomas";
+            string name = "Andrius";
             //act
             var actualRessult = clientRepository.GetClientsById(3);
             //assert
@@ -37,18 +37,6 @@ namespace UzsakymuValdymasTests
             var acctualResult = ordersRepository.GetOrdersById(5);
 
             Assert.AreEqual(clientId, acctualResult.ClientId);
-        }
-
-        [Test]
-        public void TestingGetAllOrders()
-        {
-            
-        }
-
-        [Test]
-        public void TestingParseId()
-        {
-
         }
     }
 }
