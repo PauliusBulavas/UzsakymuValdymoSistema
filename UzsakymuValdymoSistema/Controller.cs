@@ -9,15 +9,15 @@ namespace UzsakymuValdymoSistema
 {
     public class Controller
     {
-        ClientRepository clientRepository;
+        ClientRepository  clientRepository;
         ProductRepository productRepository;
-        OrdersRepository ordersRepository;
+        OrdersRepository  ordersRepository;
         
         public Controller()
         {
-            this.clientRepository = new ClientRepository();
+            this.clientRepository  = new ClientRepository();
             this.productRepository = new ProductRepository();
-            this.ordersRepository = new OrdersRepository();
+            this.ordersRepository  = new OrdersRepository();
         }
 
         public void ShowMenu()
