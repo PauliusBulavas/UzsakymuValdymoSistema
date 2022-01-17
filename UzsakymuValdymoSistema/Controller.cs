@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using UzsakymuValdymoSistema.Models;
 using UzsakymuValdymoSistema.Options;
+using UzsakymuValdymoSistema.Report;
 using UzsakymuValdymoSistema.Repositories;
 
 namespace UzsakymuValdymoSistema
@@ -27,6 +27,8 @@ namespace UzsakymuValdymoSistema
         
         public void OptionsMenu()
         {
+            Utility utility = new Utility();
+
             Console.WriteLine("\tORDER MANAGER 3000\n");
             Console.WriteLine("Which report/function do you want to see/do?\n");
             Console.WriteLine("[1] - All Clients report");
@@ -47,15 +49,19 @@ namespace UzsakymuValdymoSistema
                 case 1:
                     Console.Clear();
                     PrintClients(_clientRepository.GetClients());
+                    utility.SaveToCsv<Client>(_clientRepository.GetClients(), "C:\\Users\\pauli\\Documents\\GitHub\\UzsakymuValdymoSistema\\Data\\ClientRepository.csv");
                     break;
                 case 2:
                     Console.Clear();
                     DisplayOrdersReport displayOrdersReport = new DisplayOrdersReport();
                     displayOrdersReport.GetOrdersReport(_clientRepository, _productRepository, _ordersRepository);
+                    AllUncoveredOrdersReport allUncoveredOrdersReport = new AllUncoveredOrdersReport(_clientRepository, _ordersRepository, _productRepository);
+                    utility.SaveToCsv<ReportItemOrders>(allUncoveredOrdersReport.GetAllOrders(), "C:\\Users\\pauli\\Documents\\GitHub\\UzsakymuValdymoSistema\\Data\\OrdersReport.csv");
                     break;
                 case 3:
                     Console.Clear();
                     PrintProducts(_productRepository.GetProducts());
+                    utility.SaveToCsv<Product>(_productRepository.GetProducts(), "C:\\Users\\pauli\\Documents\\GitHub\\UzsakymuValdymoSistema\\Data\\ProductRepository.csv");
                     break;
                 case 4:
                     Console.Clear();
@@ -124,6 +130,7 @@ namespace UzsakymuValdymoSistema
                 case 1:
                     var newOrder = utility.GetNewOrderFromInput();  //jei naudojamas neegzistuojantis klienatas ir/ar productas orderis nesusikura, taciau apie tai nepranesa!!
                     _ordersRepository.AddOrder(newOrder);
+                    utility.SaveToCsv<Order>(_ordersRepository.GetOrders(), "C:\\Users\\pauli\\Documents\\GitHub\\UzsakymuValdymoSistema\\Data\\OrdersRepository.csv");
                     Console.Clear();
                     CreateOrdersMenu();
                     break;
@@ -139,7 +146,6 @@ namespace UzsakymuValdymoSistema
                     break;
             }
         }
-
         public void CreateProductsMenu()
         {
             Utility utility = new Utility();
@@ -170,6 +176,11 @@ namespace UzsakymuValdymoSistema
                     Console.WriteLine("wrong input!");
                     break;
             }
+        }
+
+        public void PrintOrSaveReportMenu()
+        {
+
         }
 
         public static void PrintClients(List<Client> clients)

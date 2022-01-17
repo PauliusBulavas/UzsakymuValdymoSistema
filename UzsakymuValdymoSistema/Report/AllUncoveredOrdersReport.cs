@@ -17,7 +17,7 @@ namespace UzsakymuValdymoSistema.Report
             _productRepository = productRepository;
         }
 
-        public List<ReportItemOrders> GetAllOrders()                                 //apjungia visas tris repo tam kad gauti reikiamus parametrus order raportui
+        public List<ReportItemOrders> GetAllOrders()                                 //apjungia visas tris repo tam kad gauti reikiamus parametrus order raportui ir sugeneruoja nauja raporto lista
         {
             List<Order> orders = _ordersRepository.GetOrders();
             List<ReportItemOrders> orderList = new List<ReportItemOrders>();
@@ -37,6 +37,7 @@ namespace UzsakymuValdymoSistema.Report
                 
                 ReportItemOrders report = new ReportItemOrders();
                 report.OrderId       = order.OrderId;
+                report.ClinetId      = client.ClientId;
                 report.ClientName    = client.ClientName;
                 report.ClientCompany = client.ClientCompanyName;
                 report.ProductId     = order.ProductId;

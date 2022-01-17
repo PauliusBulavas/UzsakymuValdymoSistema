@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Globalization;
-using System.Text;
+using System.IO;
+using System.Linq;
 using UzsakymuValdymoSistema.Models;
-using UzsakymuValdymoSistema.Report;
-using UzsakymuValdymoSistema.Repositories;
+
 
 namespace UzsakymuValdymoSistema.Options
 {
@@ -66,6 +67,17 @@ namespace UzsakymuValdymoSistema.Options
             bool idToRemove = int.TryParse(Console.ReadLine(), out value);
 
             return value;          
+        }
+
+        public void SaveToCsv<T>(List<T> reportData, string path) //pavogtas save to csv metodas 
+        {
+            var lines = new List<string>();
+            IEnumerable<PropertyDescriptor> props = TypeDescriptor.GetProperties(typeof(T)).OfType<PropertyDescriptor>();
+            var header = string.Join(",", props.ToList().Select(x => x.Name));
+            lines.Add(header);
+            var valueLines = reportData.Select(row => string.Join(",", header.Split(',').Select(a => row.GetType().GetProperty(a).GetValue(row, null))));
+            lines.AddRange(valueLines);
+            File.WriteAllLines(path, lines.ToArray());
         }
 
 

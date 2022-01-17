@@ -1,0 +1,12 @@
+OrderId,ClinetId,ClientName,ClientCompany,ProductId,ProductName,Ammount,TotalPrice
+1,1,Jonas,UAB Lydimo darbai,1,Copper,20,1791,2
+2,2,Petras,UAB China Trade,2,Iron,10,1420
+3,3,Andrius,UAB Smeltlita,3,Coal,40,2760
+4,4,Jonas,UAB Gelezinis,4,Tin,50,2500
+5,3,Andrius,UAB Smeltlita,5,Sulfur,60,9600
+6,2,Petras,UAB China Trade,4,Tin,12,600
+7,1,Jonas,UAB Lydimo darbai,5,Sulfur,45,7200
+8,4,Jonas,UAB Gelezinis,1,Copper,13,1164,28
+9,3,Andrius,UAB Smeltlita,3,Coal,10,690
+10,1,Jonas,UAB Lydimo darbai,2,Iron,8,1136
+11,3,Andrius,UAB Smeltlita,4,Tin,300,15000
