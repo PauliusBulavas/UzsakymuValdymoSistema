@@ -12,7 +12,7 @@ namespace UzsakymuValdymasTests
             var clientRepository = new ClientRepository();
             string name = "Tomas";
             //act
-            var actualRessult = clientRepository.GetClients(3);
+            var actualRessult = clientRepository.GetClientsById(3);
             //assert
             Assert.AreEqual(name, actualRessult.ClientName);
         }
@@ -23,7 +23,7 @@ namespace UzsakymuValdymasTests
             var productRepostiory = new ProductRepository();
             string name = "Tin";
 
-            var acctualRessult = productRepostiory.GetProducts(4);
+            var acctualRessult = productRepostiory.GetProductsById(4);
 
             Assert.AreEqual(name, acctualRessult.ProductName);
         }
@@ -34,9 +34,21 @@ namespace UzsakymuValdymasTests
             var ordersRepository = new OrdersRepository();
             int clientId = 3;
 
-            var acctualResult = ordersRepository.GetOrders(5);
+            var acctualResult = ordersRepository.GetOrdersById(5);
 
             Assert.AreEqual(clientId, acctualResult.ClientId);
+        }
+
+        [Test]
+        public void TestingGetAllOrders()
+        {
+            
+        }
+
+        [Test]
+        public void TestingParseId()
+        {
+
         }
     }
 }

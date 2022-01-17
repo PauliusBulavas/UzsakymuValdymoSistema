@@ -10,7 +10,7 @@ namespace UzsakymuValdymoSistema.Options
 {
     public class Utility
     {
-        public Client GetNewClientFromInput()
+        public Client GetNewClientFromInput()        //3 metodai kurie sukuira nauja object sarase id priskiriamas pagal esama didziausia id sarase pridejus 1
         { 
             Console.WriteLine("Input client name: ");
             string clientName    = Console.ReadLine();

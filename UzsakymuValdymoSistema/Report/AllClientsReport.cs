@@ -15,7 +15,7 @@ namespace UzsakymuValdymoSistema.Report
             _clientRepository = clientRepository;
         }
 
-        public List<ReportItemClients> GetAllClients()
+        public List<ReportItemClients> GetAllClients() //nereikalinga class bei metodas, uztenka tiesiog visus isprintinti, kadangi nieko is kitu repo neriekia
         {
             List<Client> clients               = _clientRepository.GetClients();
             List<ReportItemClients> clientList = new List<ReportItemClients>();

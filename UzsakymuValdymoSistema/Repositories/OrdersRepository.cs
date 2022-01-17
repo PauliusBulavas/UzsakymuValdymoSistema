@@ -24,7 +24,7 @@ namespace UzsakymuValdymoSistema.Repositories
         }
         public List<Order> GetOrders() => orders;
 
-        public Order GetOrders(int orderId)
+        public Order GetOrdersById(int orderId)
         {
             var actualOrder = orders.FirstOrDefault(x => x.OrderId == orderId);
 
@@ -39,7 +39,7 @@ namespace UzsakymuValdymoSistema.Repositories
 
         public bool RemoveOrder(int id)
         {
-            return orders.Remove(GetOrders(id));
+            return orders.Remove(GetOrdersById(id));
         }
         
     }

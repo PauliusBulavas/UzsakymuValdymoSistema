@@ -22,7 +22,7 @@ namespace UzsakymuValdymoSistema.Repositories
 
         public List<Product> GetProducts() => products;
 
-        public Product GetProducts(int productId)
+        public Product GetProductsById(int productId)
         {
             var acctualProduct = products.FirstOrDefault(x => x.ProductId == productId);
 
@@ -37,7 +37,7 @@ namespace UzsakymuValdymoSistema.Repositories
 
         public bool RemoveProduct(int id)
         {
-            return products.Remove(GetProducts(id)); 
+            return products.Remove(GetProductsById(id)); 
         }
 
     }

@@ -17,19 +17,19 @@ namespace UzsakymuValdymoSistema.Report
             _productRepository = productRepository;
         }
 
-        public List<ReportItemOrders> GetAllOrders()
+        public List<ReportItemOrders> GetAllOrders()                                 //apjungia visas tris repo tam kad gauti reikiamus parametrus order raportui
         {
             List<Order> orders = _ordersRepository.GetOrders();
             List<ReportItemOrders> orderList = new List<ReportItemOrders>();
             
             foreach (var order in orders)
             {
-                var client = _clientRepository.GetClients(order.ClientId);
+                var client = _clientRepository.GetClientsById(order.ClientId);
                 if (client == null)
                 {
                     continue;
                 }
-                var product = _productRepository.GetProducts(order.ProductId);
+                var product = _productRepository.GetProductsById(order.ProductId);
                 if (product == null)
                 {
                     continue;

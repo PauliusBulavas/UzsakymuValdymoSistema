@@ -9,18 +9,18 @@ namespace UzsakymuValdymoSistema
 {
     public class Controller
     {
-        ClientRepository  clientRepository;
-        ProductRepository productRepository;
-        OrdersRepository  ordersRepository;
+        ClientRepository  _clientRepository;
+        ProductRepository _productRepository;
+        OrdersRepository  _ordersRepository;
         
-        public Controller()
+        public Controller()                                                     //su controlleriu susikuriam repositorijas sitoje klaseje, tam kad matytusi atlikti pakeitimai 
         {
-            this.clientRepository  = new ClientRepository();
-            this.productRepository = new ProductRepository();
-            this.ordersRepository  = new OrdersRepository();
+            this._clientRepository  = new ClientRepository();
+            this._productRepository = new ProductRepository();
+            this._ordersRepository  = new OrdersRepository();
         }
 
-        public void ShowMenu()
+        public void ShowMenu()                                                  
         {
             OptionsMenu();
         }
@@ -40,22 +40,22 @@ namespace UzsakymuValdymoSistema
 
             //int option = int.Parse(Console.ReadLine()); //error handler reikia 
 
-            int option = TryParseOption();         //ghetto handles wrong inputs
+            int option = TryParseOption();         //ghetto handles wrong inputs semi works
 
             switch (option)
             {
                 case 1:
                     Console.Clear();
-                    PrintClients(clientRepository.GetClients());
+                    PrintClients(_clientRepository.GetClients());
                     break;
                 case 2:
                     Console.Clear();
                     DisplayOrdersReport displayOrdersReport = new DisplayOrdersReport();
-                    displayOrdersReport.GetOrdersReport(clientRepository, productRepository, ordersRepository);
+                    displayOrdersReport.GetOrdersReport(_clientRepository, _productRepository, _ordersRepository);
                     break;
                 case 3:
                     Console.Clear();
-                    PrintProducts(productRepository.GetProducts());
+                    PrintProducts(_productRepository.GetProducts());
                     break;
                 case 4:
                     Console.Clear();
@@ -93,18 +93,18 @@ namespace UzsakymuValdymoSistema
             {
                 case 1:                   
                     var newClient = utility.GetNewClientFromInput();
-                    clientRepository.AddClient(newClient);
+                    _clientRepository.AddClient(newClient);
                     Console.Clear();
                     CreateClientsMenu();
                     break;
                 case 2:
-                    PrintClients(clientRepository.GetClients());            //istrynus klienta dingsta ir order susije su jo id fault or feature??!?!
-                    clientRepository.RemoveClient(Utility.ParseId());
+                    PrintClients(_clientRepository.GetClients());            //istrynus klienta dingsta ir order susije su jo id fault or feature??!?!
+                    _clientRepository.RemoveClient(Utility.ParseId());
                     Console.Clear();
                     CreateClientsMenu();
                     break;
                 default:
-                    Console.Clear();
+                    Console.WriteLine("wrong input!");
                     break;
             }
         }
@@ -123,19 +123,19 @@ namespace UzsakymuValdymoSistema
             {
                 case 1:
                     var newOrder = utility.GetNewOrderFromInput();  //jei naudojamas neegzistuojantis klienatas ir/ar productas orderis nesusikura, taciau apie tai nepranesa!!
-                    ordersRepository.AddOrder(newOrder);
+                    _ordersRepository.AddOrder(newOrder);
                     Console.Clear();
                     CreateOrdersMenu();
                     break;
                 case 2:
                     DisplayOrdersReport displayOrdersReport = new DisplayOrdersReport();
-                    displayOrdersReport.GetOrdersReport(clientRepository, productRepository, ordersRepository);
-                    ordersRepository.RemoveOrder(Utility.ParseId());
+                    displayOrdersReport.GetOrdersReport(_clientRepository, _productRepository, _ordersRepository);
+                    _ordersRepository.RemoveOrder(Utility.ParseId());
                     Console.Clear();
                     CreateOrdersMenu();
                     break;
                 default:
-                    Console.Clear();
+                    Console.WriteLine("wrong input!");
                     break;
             }
         }
@@ -154,20 +154,20 @@ namespace UzsakymuValdymoSistema
             switch (option)
             {
                 case 1:
-                    PrintProducts(productRepository.GetProducts());
+                    PrintProducts(_productRepository.GetProducts());
                     var newProduct = utility.GetNewProductFromInput();
-                    productRepository.AddProduct(newProduct);
+                    _productRepository.AddProduct(newProduct);
                     Console.Clear();
                     CreateProductsMenu();
                     break;
                 case 2:
-                    PrintProducts(productRepository.GetProducts());
-                    productRepository.RemoveProduct(Utility.ParseId());
+                    PrintProducts(_productRepository.GetProducts());
+                    _productRepository.RemoveProduct(Utility.ParseId());
                     Console.Clear();
                     CreateProductsMenu();
                     break;
                 default:
-                    Console.Clear();
+                    Console.WriteLine("wrong input!");
                     break;
             }
         }
