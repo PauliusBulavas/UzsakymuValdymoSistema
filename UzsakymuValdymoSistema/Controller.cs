@@ -40,28 +40,24 @@ namespace UzsakymuValdymoSistema
             Console.WriteLine("[7] - Exit");
 
 
-            //int option = int.Parse(Console.ReadLine()); //error handler reikia 
-
-            int option = TryParseOption();         //ghetto handles wrong inputs semi works
-
-            switch (option)
+            switch (int.TryParse(Console.ReadLine(), out int value) ? value : 0)                   //naudojame inline if statment
             {
                 case 1:
                     Console.Clear();
                     PrintClients(_clientRepository.GetClients());
-                    utility.SaveToCsv<Client>(_clientRepository.GetClients(), "C:\\Users\\pauli\\Documents\\GitHub\\UzsakymuValdymoSistema\\Data\\ClientRepository.csv");
+                    //utility.SaveToCsv<Client>(_clientRepository.GetClients(), utility.GetPathToResource("ClientRepository.txt"));
                     break;
                 case 2:
                     Console.Clear();
                     DisplayOrdersReport displayOrdersReport = new DisplayOrdersReport();
                     displayOrdersReport.GetOrdersReport(_clientRepository, _productRepository, _ordersRepository);
                     AllUncoveredOrdersReport allUncoveredOrdersReport = new AllUncoveredOrdersReport(_clientRepository, _ordersRepository, _productRepository);
-                    utility.SaveToCsv<ReportItemOrders>(allUncoveredOrdersReport.GetAllOrders(), "C:\\Users\\pauli\\Documents\\GitHub\\UzsakymuValdymoSistema\\Data\\OrdersReport.csv");
+                    //utility.SaveToCsv<ReportItemOrders>(allUncoveredOrdersReport.GetAllOrders(), utility.GetPathToResource("OrdersReport.txt"));
                     break;
                 case 3:
                     Console.Clear();
                     PrintProducts(_productRepository.GetProducts());
-                    utility.SaveToCsv<Product>(_productRepository.GetProducts(), "C:\\Users\\pauli\\Documents\\GitHub\\UzsakymuValdymoSistema\\Data\\ProductRepository.csv");
+                    //utility.SaveToCsv<Product>(_productRepository.GetProducts(), utility.GetPathToResource("ProductRepository.txt"));
                     break;
                 case 4:
                     Console.Clear();
@@ -91,11 +87,10 @@ namespace UzsakymuValdymoSistema
             Console.WriteLine("Do you wish to add or remove a Client?\n");
             Console.WriteLine("[1] - Add a Client");
             Console.WriteLine("[2] - Remove a Client");
-            Console.WriteLine("[3] - Go back");
+            Console.WriteLine("[3] - View and save client list");
+            Console.WriteLine("[4] - Go back");
 
-            int option = int.Parse(Console.ReadLine());
-
-            switch (option)
+            switch (int.TryParse(Console.ReadLine(), out int value) ? value : 0)
             {
                 case 1:                   
                     var newClient = utility.GetNewClientFromInput();
@@ -105,9 +100,21 @@ namespace UzsakymuValdymoSistema
                     break;
                 case 2:
                     PrintClients(_clientRepository.GetClients());            //istrynus klienta dingsta ir order susije su jo id fault or feature??!?!
-                    _clientRepository.RemoveClient(Utility.ParseId());
+                    _clientRepository.RemoveClient(utility.ParseId());
                     Console.Clear();
                     CreateClientsMenu();
+                    break;
+                case 3:
+                    Console.Clear();
+                    PrintClients(_clientRepository.GetClients());
+                    utility.SaveToCsv<Client>(_clientRepository.GetClients(), utility.GetPathToResource("ClientRepository.txt"));
+                    Console.ReadLine();
+                    Console.Clear();
+                    CreateClientsMenu();
+                    break;
+                case 4:
+                    Console.Clear();
+                    OptionsMenu();
                     break;
                 default:
                     Console.WriteLine("wrong input!");
@@ -117,29 +124,41 @@ namespace UzsakymuValdymoSistema
         public void CreateOrdersMenu()
         {
             Utility utility = new Utility();
+            DisplayOrdersReport displayOrdersReport = new DisplayOrdersReport();
+            AllUncoveredOrdersReport allUncoveredOrdersReport = new AllUncoveredOrdersReport(_clientRepository, _ordersRepository, _productRepository);
 
             Console.WriteLine("Do you wish to add or remove an Order?\n");
             Console.WriteLine("[1] - Add an Order");
             Console.WriteLine("[2] - Remove an Order");
-            Console.WriteLine("[3] - Go back");
+            Console.WriteLine("[3] - View and save order list");
+            Console.WriteLine("[4] - Go back");
 
-            int option = TryParseOption();
-
-            switch (option)
+            switch (int.TryParse(Console.ReadLine(), out int value) ? value : 0)
             {
                 case 1:
-                    var newOrder = utility.GetNewOrderFromInput();  //jei naudojamas neegzistuojantis klienatas ir/ar productas orderis nesusikura, taciau apie tai nepranesa!!
+                    var newOrder = utility.GetNewOrderFromInput();            //jei naudojamas neegzistuojantis klienatas ir/ar productas orderis nesusikura, taciau apie tai nepranesa!!
                     _ordersRepository.AddOrder(newOrder);
-                    utility.SaveToCsv<Order>(_ordersRepository.GetOrders(), "C:\\Users\\pauli\\Documents\\GitHub\\UzsakymuValdymoSistema\\Data\\OrdersRepository.csv");
+                    utility.SaveToCsv<Order>(_ordersRepository.GetOrders(), utility.GetPathToResource("OrdersRepository.txt"));
                     Console.Clear();
                     CreateOrdersMenu();
                     break;
                 case 2:
-                    DisplayOrdersReport displayOrdersReport = new DisplayOrdersReport();
                     displayOrdersReport.GetOrdersReport(_clientRepository, _productRepository, _ordersRepository);
-                    _ordersRepository.RemoveOrder(Utility.ParseId());
+                    _ordersRepository.RemoveOrder(utility.ParseId());
                     Console.Clear();
                     CreateOrdersMenu();
+                    break;
+                case 3:
+                    Console.Clear();
+                    displayOrdersReport.GetOrdersReport(_clientRepository, _productRepository, _ordersRepository);
+                    utility.SaveToCsv<ReportItemOrders>(allUncoveredOrdersReport.GetAllOrders(), utility.GetPathToResource("OrdersReport.txt"));
+                    Console.ReadLine();
+                    Console.Clear();
+                    CreateOrdersMenu();
+                    break;
+                case 4:
+                    Console.Clear();
+                    OptionsMenu();
                     break;
                 default:
                     Console.WriteLine("wrong input!");
@@ -153,11 +172,11 @@ namespace UzsakymuValdymoSistema
             Console.WriteLine("Do you wish to add or remove an product?\n");
             Console.WriteLine("[1] - Add a product");
             Console.WriteLine("[2] - Remove a product");
-            Console.WriteLine("[3] - Go back");
+            Console.WriteLine("[3] - View and save product list");
+            Console.WriteLine("[4] - Go back");
 
-            int option = TryParseOption();
 
-            switch (option)
+            switch (int.TryParse(Console.ReadLine(), out int value) ? value : 0)
             {
                 case 1:
                     PrintProducts(_productRepository.GetProducts());
@@ -168,19 +187,26 @@ namespace UzsakymuValdymoSistema
                     break;
                 case 2:
                     PrintProducts(_productRepository.GetProducts());
-                    _productRepository.RemoveProduct(Utility.ParseId());
+                    _productRepository.RemoveProduct(utility.ParseId());
                     Console.Clear();
                     CreateProductsMenu();
+                    break;
+                case 3:
+                    Console.Clear();
+                    PrintProducts(_productRepository.GetProducts());
+                    utility.SaveToCsv<Product>(_productRepository.GetProducts(), utility.GetPathToResource("ProductRepository.txt"));
+                    Console.ReadLine();
+                    Console.Clear();
+                    CreateClientsMenu();
+                    break;
+                case 4:
+                    Console.Clear();
+                    OptionsMenu();
                     break;
                 default:
                     Console.WriteLine("wrong input!");
                     break;
             }
-        }
-
-        public void PrintOrSaveReportMenu()
-        {
-
         }
 
         public static void PrintClients(List<Client> clients)
@@ -202,12 +228,5 @@ namespace UzsakymuValdymoSistema
             Console.WriteLine();
         }
 
-        public int TryParseOption() //Ghetto ass error handler again
-        {
-            int value;
-            bool succsess = int.TryParse(Console.ReadLine(), out value);
-
-            return value;
-        }
     }
 }

@@ -4,11 +4,13 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using UzsakymuValdymoSistema.Models;
+using UzsakymuValdymoSistema.Options;
 
 namespace UzsakymuValdymoSistema.Repositories
 {
     public class ClientRepository
     {
+        Utility utility = new Utility();
         private List<Client> clients = new List<Client>();
 
         //public ClientRepository()
@@ -42,14 +44,14 @@ namespace UzsakymuValdymoSistema.Repositories
 
         public ClientRepository()
         {
-            string fileName = "C:\\Users\\pauli\\Documents\\GitHub\\UzsakymuValdymoSistema\\Data\\ClientRepository.csv";
+            string fileName = utility.GetPathToResource("ClientRepository.txt");
             string[] linesInFile = File.ReadAllLines(fileName);
             linesInFile = linesInFile.Skip(1).ToArray();
 
 
             foreach (string line in linesInFile)
             {
-                string[] rows = line.Split(',');
+                string[] rows = line.Split(';');
 
                 var client = new Client();
                 client.ClientId          = Convert.ToInt32(rows[0]);

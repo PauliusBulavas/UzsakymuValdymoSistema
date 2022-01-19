@@ -12,3 +12,9 @@ C:\Users\pauli\Documents\GitHub\UzsakymuValdymoSistema\UzsakymuValdymoSistema\ob
 C:\Users\pauli\Documents\GitHub\UzsakymuValdymoSistema\UzsakymuValdymoSistema\obj\Debug\netcoreapp3.1\UzsakymuValdymoSistema.dll
 C:\Users\pauli\Documents\GitHub\UzsakymuValdymoSistema\UzsakymuValdymoSistema\obj\Debug\netcoreapp3.1\UzsakymuValdymoSistema.pdb
 C:\Users\pauli\Documents\GitHub\UzsakymuValdymoSistema\UzsakymuValdymoSistema\obj\Debug\netcoreapp3.1\UzsakymuValdymoSistema.genruntimeconfig.cache
+C:\Users\pauli\Documents\GitHub\UzsakymuValdymoSistema\UzsakymuValdymoSistema\obj\Debug\netcoreapp3.1\UzsakymuValdymoSistema.Properties.Resources.resources
+C:\Users\pauli\Documents\GitHub\UzsakymuValdymoSistema\UzsakymuValdymoSistema\obj\Debug\netcoreapp3.1\UzsakymuValdymoSistema.csproj.GenerateResource.cache
+C:\Users\pauli\Documents\GitHub\UzsakymuValdymoSistema\UzsakymuValdymoSistema\bin\Debug\netcoreapp3.1\Resources\ClientRepository.txt
+C:\Users\pauli\Documents\GitHub\UzsakymuValdymoSistema\UzsakymuValdymoSistema\bin\Debug\netcoreapp3.1\Resources\OrdersReport.txt
+C:\Users\pauli\Documents\GitHub\UzsakymuValdymoSistema\UzsakymuValdymoSistema\bin\Debug\netcoreapp3.1\Resources\OrdersRepository.txt
+C:\Users\pauli\Documents\GitHub\UzsakymuValdymoSistema\UzsakymuValdymoSistema\bin\Debug\netcoreapp3.1\Resources\ProductRepository.txt

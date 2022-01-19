@@ -4,11 +4,13 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using UzsakymuValdymoSistema.Models;
+using UzsakymuValdymoSistema.Options;
 
 namespace UzsakymuValdymoSistema.Repositories
 {
     public class ProductRepository
     {
+        Utility utility = new Utility();
         private List<Product> products = new List<Product>();
 
         //public ProductRepository()
@@ -44,13 +46,13 @@ namespace UzsakymuValdymoSistema.Repositories
         public ProductRepository()
         {
             IFormatProvider provider = NumberFormatInfo.InvariantInfo;
-            string fileName = "C:\\Users\\pauli\\Documents\\GitHub\\UzsakymuValdymoSistema\\Data\\ProductRepository.csv";
+            string fileName = utility.GetPathToResource("ProductRepository.txt");
             string[] linesInFile = File.ReadAllLines(fileName);
             linesInFile = linesInFile.Skip(1).ToArray();
 
             foreach (string line in linesInFile)
             {
-                string[] rows = line.Split(',');
+                string[] rows = line.Split(';');
 
                 var product = new Product();
                 product.ProductId   = Convert.ToInt32(rows[0]);

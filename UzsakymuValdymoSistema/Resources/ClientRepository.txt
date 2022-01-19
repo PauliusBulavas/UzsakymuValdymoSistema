@@ -1,0 +1,7 @@
+ClientId,ClientName,ClientCompanyName
+1;Jonas;UAB Lydimo darbai
+2;Petras;UAB China Trade
+3;Andrius;UAB Smeltlita
+4;Jonas;UAB Gelezinis
+5;Tomas;UAB Ores
+6;Juozas;UAB JuozukoLankai

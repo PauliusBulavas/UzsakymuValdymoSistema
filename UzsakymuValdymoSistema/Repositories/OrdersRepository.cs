@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UzsakymuValdymoSistema.Models;
+using UzsakymuValdymoSistema.Options;
 
 namespace UzsakymuValdymoSistema.Repositories
 {
     public class OrdersRepository
     {
+        Utility utility = new Utility();
         private List<Order> orders = new List<Order>();
 
         //public OrdersRepository()
@@ -46,13 +48,13 @@ namespace UzsakymuValdymoSistema.Repositories
 
         public OrdersRepository()
         {
-            string fileName = "C:\\Users\\pauli\\Documents\\GitHub\\UzsakymuValdymoSistema\\Data\\OrdersRepository.csv";
+            string fileName = utility.GetPathToResource("OrdersRepository.txt");
             string[] linesInFile = File.ReadAllLines(fileName);
             linesInFile = linesInFile.Skip(1).ToArray();
 
             foreach (string line in linesInFile)
             {
-                string[] rows = line.Split(',');
+                string[] rows = line.Split(';');
 
                 var order = new Order();
                 order.OrderId   = Convert.ToInt32(rows[0]);

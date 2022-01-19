@@ -60,24 +60,35 @@ namespace UzsakymuValdymoSistema.Options
             return product;
         }
 
-        public static int ParseId() //ghetto handles wrong inputs, ar taip korektiska daryti?!?!?!
+        public int ParseId()
         {
             Console.WriteLine("Input ID to remove or [ENTER] to go back");
             int value;
             bool idToRemove = int.TryParse(Console.ReadLine(), out value);
 
-            return value;          
+            return value;
+
+
         }
 
-        public void SaveToCsv<T>(List<T> reportData, string path) //pavogtas save to csv metodas 
+        public void SaveToCsv<T>(List<T> reportData, string path) //pasiskolintas save to csv metodas 
         {
             var lines = new List<string>();
             IEnumerable<PropertyDescriptor> props = TypeDescriptor.GetProperties(typeof(T)).OfType<PropertyDescriptor>();
             var header = string.Join(",", props.ToList().Select(x => x.Name));
             lines.Add(header);
-            var valueLines = reportData.Select(row => string.Join(",", header.Split(',').Select(a => row.GetType().GetProperty(a).GetValue(row, null))));
+            var valueLines = reportData.Select(row => string.Join(";", header.Split(',').Select(a => row.GetType().GetProperty(a).GetValue(row, null))));
             lines.AddRange(valueLines);
             File.WriteAllLines(path, lines.ToArray());
+        }
+
+        public string GetPathToResource(string resourceName)  //pasiskolintas path gavimo i resource metodas
+        {
+            String strAppPath = Path.GetDirectoryName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName);
+            String strFilePath = Path.Combine(strAppPath, "Resources");
+            String strFullFilename = Path.Combine(strFilePath, resourceName);
+
+            return strFullFilename;
         }
 
 
