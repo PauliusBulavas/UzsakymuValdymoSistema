@@ -63,12 +63,10 @@ namespace UzsakymuValdymoSistema.Options
         public int ParseId()
         {
             Console.WriteLine("Input ID to remove or [ENTER] to go back");
-            int value;
-            bool idToRemove = int.TryParse(Console.ReadLine(), out value);
+
+            int.TryParse(Console.ReadLine(), out int value);
 
             return value;
-
-
         }
 
         public void SaveToCsv<T>(List<T> reportData, string path) //pasiskolintas save to csv metodas 

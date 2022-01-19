@@ -45,19 +45,15 @@ namespace UzsakymuValdymoSistema
                 case 1:
                     Console.Clear();
                     PrintClients(_clientRepository.GetClients());
-                    //utility.SaveToCsv<Client>(_clientRepository.GetClients(), utility.GetPathToResource("ClientRepository.txt"));
                     break;
                 case 2:
                     Console.Clear();
                     DisplayOrdersReport displayOrdersReport = new DisplayOrdersReport();
                     displayOrdersReport.GetOrdersReport(_clientRepository, _productRepository, _ordersRepository);
-                    AllUncoveredOrdersReport allUncoveredOrdersReport = new AllUncoveredOrdersReport(_clientRepository, _ordersRepository, _productRepository);
-                    //utility.SaveToCsv<ReportItemOrders>(allUncoveredOrdersReport.GetAllOrders(), utility.GetPathToResource("OrdersReport.txt"));
                     break;
                 case 3:
                     Console.Clear();
                     PrintProducts(_productRepository.GetProducts());
-                    //utility.SaveToCsv<Product>(_productRepository.GetProducts(), utility.GetPathToResource("ProductRepository.txt"));
                     break;
                 case 4:
                     Console.Clear();
@@ -99,7 +95,7 @@ namespace UzsakymuValdymoSistema
                     CreateClientsMenu();
                     break;
                 case 2:
-                    PrintClients(_clientRepository.GetClients());            //istrynus klienta dingsta ir order susije su jo id fault or feature??!?!
+                    PrintClients(_clientRepository.GetClients());            
                     _clientRepository.RemoveClient(utility.ParseId());
                     Console.Clear();
                     CreateClientsMenu();
@@ -136,7 +132,7 @@ namespace UzsakymuValdymoSistema
             switch (int.TryParse(Console.ReadLine(), out int value) ? value : 0)
             {
                 case 1:
-                    var newOrder = utility.GetNewOrderFromInput();            //jei naudojamas neegzistuojantis klienatas ir/ar productas orderis nesusikura, taciau apie tai nepranesa!!
+                    var newOrder = utility.GetNewOrderFromInput();            
                     _ordersRepository.AddOrder(newOrder);
                     utility.SaveToCsv<Order>(_ordersRepository.GetOrders(), utility.GetPathToResource("OrdersRepository.txt"));
                     Console.Clear();
