@@ -1,4 +1,4 @@
-ClientId,ClientName,ClientCompanyName
+Id;Name;CompanyName
 1;Jonas;UAB Lydimo darbai
 2;Petras;UAB China Trade
 3;Andrius;UAB Smeltlita

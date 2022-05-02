@@ -1,2 +1,2 @@
-OrderId,ClinetId,ClientName,ClientCompany,ProductId,ProductName,Ammount,TotalPrice
+OrderId;ClinetId;ClientName;ClientCompany;ProductId;ProductName;Amount;TotalPrice
 

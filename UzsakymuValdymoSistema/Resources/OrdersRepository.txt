@@ -1,4 +1,4 @@
-OrderId,ClientId,ProductId,Ammount
+Id;ClientId;ProductId;Amount
 1;1;1;20
 2;2;2;10
 3;3;3;40

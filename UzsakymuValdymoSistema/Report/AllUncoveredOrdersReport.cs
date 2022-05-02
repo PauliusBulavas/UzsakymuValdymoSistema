@@ -4,24 +4,24 @@ using UzsakymuValdymoSistema.Repositories;
 
 namespace UzsakymuValdymoSistema.Report
 {
-    class AllUncoveredOrdersReport
+    internal class AllUncoveredOrdersReport
     {
-        private ClientRepository  _clientRepository;
-        private OrdersRepository  _ordersRepository;
-        private ProductRepository _productRepository;
+        private readonly ClientRepository _clientRepository;
+        private readonly OrdersRepository _ordersRepository;
+        private readonly ProductRepository _productRepository;
 
         public AllUncoveredOrdersReport(ClientRepository clientRepository, OrdersRepository ordersRepository, ProductRepository productRepository)
         {
-            _clientRepository  = clientRepository;
-            _ordersRepository  = ordersRepository;
+            _clientRepository = clientRepository;
+            _ordersRepository = ordersRepository;
             _productRepository = productRepository;
         }
 
-        public List<ReportItemOrders> GetAllOrders()                                 //apjungia visas tris repo tam kad gauti reikiamus parametrus order raportui ir sugeneruoja nauja raporto lista
+        public List<ReportItemOrders> GetAllOrders()
         {
-            List<Order> orders = _ordersRepository.GetOrders();
-            List<ReportItemOrders> orderList = new List<ReportItemOrders>();
-            
+            var orders = _ordersRepository.GetOrders();
+            var orderList = new List<ReportItemOrders>();
+
             foreach (var order in orders)
             {
                 var client = _clientRepository.GetClientsById(order.ClientId);
@@ -34,16 +34,18 @@ namespace UzsakymuValdymoSistema.Report
                 {
                     continue;
                 }
-                
-                ReportItemOrders report = new ReportItemOrders();
-                report.OrderId       = order.OrderId;
-                report.ClinetId      = client.ClientId;
-                report.ClientName    = client.ClientName;
-                report.ClientCompany = client.ClientCompanyName;
-                report.ProductId     = order.ProductId;
-                report.ProductName   = product.ProductName;
-                report.Ammount       = order.Ammount;
-                report.TotalPrice    = product.Price * order.Ammount;                                         
+
+                ReportItemOrders report = new ReportItemOrders
+                {
+                    OrderId = order.Id,
+                    ClinetId = client.Id,
+                    ClientName = client.Name,
+                    ClientCompany = client.CompanyName,
+                    ProductId = order.ProductId,
+                    ProductName = product.Name,
+                    Amount = order.Amount,
+                    TotalPrice = product.Price * order.Amount
+                };
 
                 orderList.Add(report);
             }

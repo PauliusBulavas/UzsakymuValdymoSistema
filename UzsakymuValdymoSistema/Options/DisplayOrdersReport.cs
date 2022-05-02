@@ -9,14 +9,16 @@ namespace UzsakymuValdymoSistema.Options
     {
         public void GetOrdersReport(ClientRepository clientRepository, ProductRepository productRepository, OrdersRepository ordersRepository)
         {
-            var allUncoveredOrdersReport = new AllUncoveredOrdersReport(clientRepository, ordersRepository, productRepository);
+            var report = new AllUncoveredOrdersReport(clientRepository, ordersRepository, productRepository);
 
-            List<ReportItemOrders> allOrders = allUncoveredOrdersReport.GetAllOrders();
+            var allOrders = report.GetAllOrders();
 
             Console.WriteLine("All Orders report:\n");
             foreach (var item in allOrders)
             {
-                Console.WriteLine($"Order Id:{item.OrderId} -- Client \"{item.ClientCompany}\" for the ammount of {item.Ammount} tones of {item.ProductName} for total of: {item.TotalPrice}$.");
+                // Console.WriteLine($"Id:{item.OrderId} -- \"{item.ClientCompany}\" Quantity -- {item.Amount}t of {item.ProductName} -- total Price: {item.TotalPrice}$.");
+                var formated = string.Format("Id - {0, -5} Name - \"{1, -20}\" Qty in tones - {2,-5} Product - {3, -10} Total - {4, -5}$", item.OrderId, item.ClientCompany, item.Amount, item.ProductName, item.TotalPrice);
+                Console.WriteLine(formated);
             }
 
             Console.WriteLine();

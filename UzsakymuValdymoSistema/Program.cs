@@ -1,11 +1,11 @@
-﻿
-namespace UzsakymuValdymoSistema
+﻿namespace UzsakymuValdymoSistema
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
-            Controller controller = new Controller();
+            var controller = new Controller();
+
             while (true)
             {
                 controller.ShowMenu();

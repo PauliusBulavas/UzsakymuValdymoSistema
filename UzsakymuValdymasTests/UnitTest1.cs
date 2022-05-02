@@ -14,7 +14,7 @@ namespace UzsakymuValdymasTests
             //act
             var actualRessult = clientRepository.GetClientsById(3);
             //assert
-            Assert.AreEqual(name, actualRessult.ClientName);
+            Assert.AreEqual(name, actualRessult.Name);
         }
 
         [Test]
@@ -25,7 +25,7 @@ namespace UzsakymuValdymasTests
 
             var acctualRessult = productRepostiory.GetProductsById(4);
 
-            Assert.AreEqual(name, acctualRessult.ProductName);
+            Assert.AreEqual(name, acctualRessult.Name);
         }
 
         [Test]

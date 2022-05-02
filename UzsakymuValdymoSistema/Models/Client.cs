@@ -1,21 +1,9 @@
-﻿
-namespace UzsakymuValdymoSistema.Models
+﻿namespace UzsakymuValdymoSistema.Models
 {
     public class Client
     {
-        public int      ClientId          { get; set; }
-        public string   ClientName        { get; set; }
-        public string   ClientCompanyName { get; set; }
-
-        public Client()
-        {
-        }
-
-        public Client(int clientId, string clientName, string clientCompanyName)
-        {
-            ClientId          = clientId;
-            ClientName        = clientName;
-            ClientCompanyName = clientCompanyName;
-        }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string CompanyName { get; set; }
     }
 }

@@ -1,21 +1,9 @@
-﻿
-namespace UzsakymuValdymoSistema.Models
+﻿namespace UzsakymuValdymoSistema.Models
 {
     public class Product
     {
-        public int    ProductId   { get; set; }
-        public string ProductName { get; set; }
-        public double Price       { get; set; }
-
-        public Product()
-        {
-        }
-
-        public Product (int productId, string productName, double price)
-        {
-            ProductId   = productId;
-            ProductName = productName;
-            Price       = price;
-        }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public decimal Price { get; set; }
     }
 }
